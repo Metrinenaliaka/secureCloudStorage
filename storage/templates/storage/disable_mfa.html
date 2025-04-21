@@ -1,0 +1,10 @@
+{% extends 'storage/base.html' %}
+{% block content %}
+<h2>Disable MFA</h2>
+<p>Are you sure you want to disable multi-factor authentication?</p>
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Disable MFA</button>
+    <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

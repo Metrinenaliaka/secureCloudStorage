@@ -1,0 +1,13 @@
+{% extends 'storage/base.html' %}
+
+{% block content %}
+<h2>Verify MFA Code</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="token">Enter the 6-digit code from your TOTP app:</label>
+    <input type="text" name="token" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-success">Verify</button>
+</form>
+{% endblock %}

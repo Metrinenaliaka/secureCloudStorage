@@ -1,0 +1,10 @@
+{% extends 'storage/base.html' %}
+{% block content %}
+<h2>User Profile</h2>
+<p>MFA Status: {{ mfa_status }}</p>
+{% if user.is_mfa_enabled %}
+  <p>MFA is enabled.</p>
+{% else %}
+  <a href="{% url 'mfa_setup' %}">Set up MFA</a>
+{% endif %}
+{% endblock %}

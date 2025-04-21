@@ -1,0 +1,16 @@
+{% extends 'storage/base.html' %}
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+
+<a href="{% url 'upload_file' %}">Upload New File</a>
+<a href="{% url 'logout' %}">Logout</a>
+
+<h3>Your Files</h3>
+<ul>
+  {% for file in files %}
+    <li>{{ file.file_name }} (uploaded at {{ file.uploaded_at }})</li>
+  {% empty %}
+    <li>No files found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
