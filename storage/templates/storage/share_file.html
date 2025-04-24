@@ -1,0 +1,12 @@
+{% extends "storage/base.html" %}
+{% block content %}
+<h2>Share File: {{ file.file_name }}</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Share</button>
+</form>
+
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'storage/base.html' %}
+{% block content %}
+  <h3>Trash</h3>
+  {% for file in trashed_files %}
+    <li>
+      {{ file.file_name }}
+      <a href="{% url 'restore_file' file.id %}">Restore</a>
+      <a href="{% url 'permanent_delete_file' file.id %}">Delete Permanently</a>
+    </li>
+  {% empty %}
+    <li>Trash is empty.</li>
+  {% endfor %}
+  <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+{% endblock %}

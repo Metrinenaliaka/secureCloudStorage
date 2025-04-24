@@ -7,4 +7,26 @@
 {% else %}
   <a href="{% url 'mfa_setup' %}">Set up MFA</a>
 {% endif %}
+<form method="post">
+  {% csrf_token %}
+  
+  <a href="{% url 'reset_mfa_device' %}"><button class="btn btn-danger">Reset MFA</button></a>
+  <p>Are you sure you want to reset your MFA device?</p>
+</form>
+<a href="{% url 'disable_mfa' %}" class="btn btn-danger">Disable MFA</a>
+
+
+
+<hr>
+<h3>Trash</h3>
+{% for file in files %}
+  {% if file.is_deleted %}
+    <li>
+      {{ file.file_name }}
+      <a href="{% url 'secure_file_action' file.id 'restore' %}">Restore</a>
+      <a href="{% url 'verify_action_otp' file.id 'delete' %}">Delete Permanently</a>
+    </li>
+  {% endif %}
+{% endfor %}
+
 {% endblock %}
