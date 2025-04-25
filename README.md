@@ -149,7 +149,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 - [AWS S3](https://aws.amazon.com/s3/)
 - [Cryptography Library](https://cryptography.io/)
 
-```
+
 
 ## Authors
 
@@ -158,7 +158,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ---
 ```
-
-
----
-````
